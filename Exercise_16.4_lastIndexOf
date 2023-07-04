@@ -1,0 +1,23 @@
+/*
+*   7.4.23
+*   https://practiceit.cs.washington.edu/problem/view/bjp5/chapter16/e4-lastIndexOf
+*/
+
+public int lastIndexOf(int num){
+    int step = 0;
+    int res = -1;
+    
+    ListNode current = front;
+    
+    while (current != null){
+        if (current.data == num){
+           res = Math.max(res, step);
+        }
+        
+        step++;
+        current = current.next;
+        
+    }
+    
+    return res;
+}

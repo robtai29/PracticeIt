@@ -1,0 +1,19 @@
+/*
+*   7.4.23
+*  https://practiceit.cs.washington.edu/problem/view/bjp5/chapter16/e1-set
+*/
+
+public void set(int index, int value){
+    
+    int step = 0;
+    ListNode current = front;
+    
+    while (current != null){
+       if (step == index){
+         current.data = value;   
+       }
+        
+      step++;
+        current = current.next;
+    }
+}

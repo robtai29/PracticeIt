@@ -1,0 +1,27 @@
+/*
+*   7.4.23
+*   https://practiceit.cs.washington.edu/problem/view/bjp5/chapter16/e3-isSorted
+*/
+
+
+
+public boolean isSorted(){
+  if (front == null || front.next == null){
+          return true;
+  }
+    
+    ListNode prev = front;
+    ListNode current = prev.next;
+    
+    while (current != null){
+        if (current.data < prev.data){
+           return false;   
+        }
+        
+     prev = current;
+     current = current.next;
+    }
+    
+    return true;
+    
+}
