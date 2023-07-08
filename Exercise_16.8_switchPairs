@@ -1,0 +1,35 @@
+/*
+*   7.8.23
+*   https://practiceit.cs.washington.edu/problem/view/bjp5/chapter16/e8-switchPairs
+*/
+
+public void switchPairs(){
+    if (front == null || front.next == null){
+      return;   
+    }
+    
+    ListNode one = front;
+    ListNode two = front.next;
+    
+    one.next = two.next;
+    two.next = one;
+    
+    front = two;
+    
+    ListNode current = one.next;
+    ListNode prev = one;
+    
+    while(current != null && current.next != null){
+        
+        one = current;
+        two = current.next;
+        
+        one.next = two.next;
+        two.next = one;
+        prev.next = two;
+        
+        prev = one;
+        current = one.next;
+
+    }
+}
