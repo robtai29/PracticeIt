@@ -1,0 +1,41 @@
+/*
+*   8.27.23
+*  https://practiceit.cs.washington.edu/problem/view/bjp5/chapter14/e4-collapse
+*/
+
+public static void collapse(Stack<Integer> s) {
+    Queue<Integer> q = new LinkedList<>();
+    int size = s.size();
+    if (size == 0){
+       return;
+    }
+    
+    
+    if (size % 2 == 1){
+        q.offer(s.pop());
+    }
+    
+    while (!s.isEmpty()){
+      int num1 = s.pop();
+        int num2 = s.pop();
+        
+        q.offer(num1 + num2);
+        
+    }
+    
+    
+    while (!q.isEmpty()){
+       s.push(q.poll());   
+        
+    }
+    
+    while (!s.isEmpty()){
+       q.offer(s.pop());   
+    }
+    
+    while (!q.isEmpty()){
+       s.push(q.poll());   
+        
+    }
+	
+}
