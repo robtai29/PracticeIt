@@ -1,0 +1,35 @@
+/*
+*   7.8.23
+*   https://practiceit.cs.washington.edu/problem/view/bjp5/chapter16/e10-stretch
+*/
+
+public void stretch(int n){
+  if (front == null){
+    return;   
+  }
+    
+    if (n <= 0){
+       front = null;
+      return;   
+        
+    }
+    
+    ListNode current = front;
+    
+    while (current != null){
+        ListNode nxt = current.next;
+        
+        for (int i = 1; i < n; i++){
+         ListNode connect = current.next;
+         current.next = new ListNode(current.data);
+         current.next.next = connect;
+         
+        }
+        
+        current = nxt;
+        
+        
+    }
+        
+        
+}
