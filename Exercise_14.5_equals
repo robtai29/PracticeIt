@@ -1,0 +1,41 @@
+/*
+*   9.2.23
+*  https://practiceit.cs.washington.edu/problem/view/bjp5/chapter14/e5-equals
+*/
+
+public boolean equals(Stack<Integer> s1, Stack<Integer> s2) {
+    if (s1.size() != s2.size()){
+       return false;  
+    }
+        
+        Stack<Integer> storage = new Stack<>();
+        boolean same = true;
+        
+        while (same && s1.isEmpty() == false){
+           int num1 = s1.pop();
+           int num2 = s2.pop();
+        
+           if (num1 != num2){
+              same = false;   
+               
+           }
+        
+            storage.push(num1);
+            storage.push(num2);   
+         }
+        
+        
+        while (!storage.isEmpty()){
+        
+           int num2 = storage.pop();
+           int num1 = storage.pop();
+            
+           s1.push(num1);
+        s2.push(num2);
+
+    }
+        
+        return same;
+        
+        
+}
