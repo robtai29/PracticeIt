@@ -1,0 +1,36 @@
+/*
+*   9.10.23
+*  https://practiceit.cs.washington.edu/problem/view/bjp5/chapter14/e9-switchPairs
+*/
+
+public void switchPairs(Stack<Integer> s) {
+    
+    Queue<Integer> q = new LinkedList<>();
+    if (s.size() % 2 == 1){
+       q.offer(s.pop());   
+    }
+    
+    while (!s.isEmpty()){
+      int num1 = s.pop();
+      int num2 = s.pop();
+        
+      q.offer(num2);
+      q.offer(num1);  
+    }
+    
+      while (!q.isEmpty()){
+        s.push(q.poll());   
+          
+      }
+        
+       while (!s.isEmpty()){
+        q.offer(s.pop());   
+          
+      }
+
+    
+      while (!q.isEmpty()){
+         s.push(q.poll());   
+        }
+	
+}

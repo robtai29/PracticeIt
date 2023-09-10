@@ -1,0 +1,44 @@
+/*
+*   9.10.23
+*  https://practiceit.cs.washington.edu/problem/view/bjp5/chapter14/e10-isConsecutive
+*/
+
+public boolean isConsecutive(Stack<Integer> s) {
+    Queue<Integer> q = new LinkedList<>();
+     boolean isConsect = true;
+    
+    if (s.size() < 2){
+     return false;   
+        
+    }
+    
+ 
+    while (!s.isEmpty()){
+        q.add(s.pop());
+    }
+    
+    s.push(q.remove());
+          
+      while (!q.isEmpty()){
+          int prev = s.peek();
+          int pop = q.remove();
+          if (prev != pop + 1){
+            isConsect = false;   
+          }
+       s.push(pop);   
+      }
+        
+        while (!s.isEmpty()){
+         q.add(s.pop());   
+            
+        }
+    
+          while (!q.isEmpty()){
+       s.push(q.remove());   
+      }
+        
+       
+
+	
+    return isConsect;
+}
